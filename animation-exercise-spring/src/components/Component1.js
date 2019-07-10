@@ -3,9 +3,13 @@ import { useSpring, animated } from 'react-spring';
 
 export default function Component1() {
     const props1 = useSpring({opacity: 1, marginTop: 0,
-                                from: {opacity: 0, marginTop: -500}})
+                                from: {opacity: 0, marginTop: -500}
+                            })
     
-    const props2 = useSpring({ number:10, from: { number: 0}})
+    const props2 = useSpring({ number: 10, 
+                                from: { number: 0 },
+                                config: { duration: 10000 }
+                            })
 
     return (
         <animated.div style={props1}>
@@ -19,6 +23,9 @@ export default function Component1() {
                     but also the leap into electronic typesetting, remaining essentially 
                     unchanged.
                 </p>
+                <animated.span style={counter}>
+                    {props2.number.interpolate(val => Math.floor(val))}
+                </animated.span>
             </div>
         </animated.div>
     )
@@ -27,13 +34,13 @@ export default function Component1() {
 const c1Style = {
     background: 'steelblue',
     color: 'white',
-    padding: '1.5rem'
+    padding: '1.5rem',
+    textAlign: 'center',
 }
 
 const counter = {
-    backgroun: '#333',
-    textAlign: 'center',
+    background: '#333',
     width: '100px',
-    boderRadius: '50%',
+    borderRadius: '50%',
     margin: '1rem auto'
 }
