@@ -18,7 +18,8 @@ export default function Component1() {
                     but also the leap into electronic typesetting, remaining essentially 
                     unchanged.
                 </p>
-                <button style={btn}>Toggle Component 3</button>
+                {/* error using props in functional component. Must change to class component */}
+                <button style={btn} onClick= {this.props.toggle}>Toggle Component 3</button>
             </div>
         </animated.div>
     )
